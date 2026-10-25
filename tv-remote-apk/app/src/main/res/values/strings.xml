@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ريموت تلفزيونك</string>
+    <string name="notif_channel_name">خدمة ريموت تلفزيونك</string>
+    <string name="notif_channel_desc">واجهة تحكم محلية لشبكة البيت</string>
+    <string name="notif_title">ريموت تلفزيونك جاهز</string>
+    <string name="status_starting">جارٍ التشغيل…</string>
+    <string name="status_running">الخادم يعمل</string>
+    <string name="status_stopped">الخادم متوقف</string>
+    <string name="btn_start">تشغيل الريموت</string>
+    <string name="btn_stop">إيقاف الريموت</string>
+    <string name="adb_connected">اتصال التحكم جاهز</string>
+    <string name="adb_disconnected">اتصال التحكم غير جاهز</string>
+    <string name="adb_hint">فعّل تصحيح USB، ثم وافق على رسالة الاتصال أول مرة</string>
+    <string name="http_port_label">منفذ صفحة التحكم</string>
+    <string name="http_port_invalid">أدخل رقمًا بين 1 و65535</string>
+    <string name="http_port_step_down" translatable="false">−</string>
+    <string name="http_port_step_up" translatable="false">+</string>
+    <string name="http_port_step_down_desc">خفض رقم المنفذ</string>
+    <string name="http_port_step_up_desc">رفع رقم المنفذ</string>
+    <string name="http_unavailable">تعذر فتح الصفحة على المنفذ %1$d</string>
+</resources>

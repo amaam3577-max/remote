@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0d100e">
+<title>ريموت تلفزيونك</title>
+<style>
+*{box-sizing:border-box}body{min-height:100vh;margin:0;background:linear-gradient(180deg,#090d0b66,#090d0beF),url('theme.jpg') center/cover fixed;color:#f8f5ec;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;display:flex;justify-content:center;align-items:center;padding:22px}.card{width:min(100%,470px);border:1px solid #e6bc7040;border-radius:28px;padding:25px;background:#101512d9;box-shadow:0 24px 70px #0009}.logo{font-size:14px;color:#e6bc70;font-weight:750;letter-spacing:.4px}.badge{display:inline-block;padding:7px 10px;border:1px solid #e6bc7045;border-radius:99px;color:#f0d49a;background:#e6bc7014;font-size:11px;margin-top:17px}h1{font-size:28px;margin:12px 0 8px}p{font-size:13px;color:#c6c3b9;line-height:1.8;margin:8px 0}.step{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid #ffffff15}.num{flex:0 0 28px;height:28px;border:1px solid #e6bc7066;border-radius:10px;color:#f4d697;display:grid;place-items:center;font-size:12px}.step b{font-size:13px}.step p{font-size:11px;margin:4px 0 0}.form{margin-top:17px;padding:15px;border-radius:18px;background:#ffffff09;border:1px solid #ffffff18}.form label{display:block;font-size:12px;font-weight:700;color:#f4d697;margin-bottom:8px}.form input{width:100%;padding:13px;border-radius:12px;border:1px solid #ffffff25;background:#0c100e;color:#fff;font:inherit;direction:ltr;text-align:left;outline:none}.form button,.repo{display:block;width:100%;margin-top:10px;padding:13px;border:0;border-radius:13px;background:linear-gradient(110deg,#806642,#56452e);color:#fff2d2;font-size:13px;font-weight:750;text-decoration:none;text-align:center;cursor:pointer}.repo{background:transparent;border:1px solid #ffffff20;color:#d2cfc6}.error{min-height:18px;font-size:11px;color:#ff978a;margin-top:5px}.fine{font-size:10px;color:#aaa99f;margin-top:14px}</style>
+</head><body><main class="card">
+<div class="logo">⌂ &nbsp; تلفزيونك · ريموت البيت</div><div class="badge">تحكم محلي وآمن داخل البيت</div>
+<h1>ريموتك صار بجوالك</h1><p>افتح الرابط المحلي لقطعة شاومي من أي جوال على شبكة البيت، واستمتع بواجهة UrTV نفسها.</p>
+<div class="step"><span class="num">١</span><div><b>أظهر العنوان على التلفزيون</b><p>افتح تطبيق «ريموت تلفزيونك» واضغط تشغيل. امسح رمز QR بكاميرا الجوال، أو اكتب عنوان القطعة الظاهر على الشاشة.</p></div></div>
+<div class="step"><span class="num">٢</span><div><b>احفظ الرابط على جوالك</b><p>بعد أول مرة، تقدر تفتح الصفحة من المفضلة، أو ترسل العنوان المحلي مباشرة لأهل البيت.</p></div></div>
+<form class="form" id="connect"><label for="address">عنوان القطعة داخل البيت</label><input id="address" placeholder="العنوان الظاهر على شاشة التلفزيون:8080" autocomplete="url" inputmode="url"><div class="error" id="error"></div><button type="submit">افتح ريموت التلفزيون</button></form>
+<a class="repo" href="#" id="repoLink">المشروع والتنزيلات على GitHub</a>
+<p class="fine">يشترط أن يكون الجوال والقطعة متصلين بواي فاي البيت نفسه. لا تشارك العنوان خارج المنزل ولا تفتح منفذ القطعة على الإنترنت.</p>
+</main><script>
+const pathParts=location.pathname.split('/').filter(Boolean);if(pathParts.length)document.getElementById('repoLink').href='https://github.com/'+location.hostname.split('.')[0]+'/'+pathParts[0];
+const field=document.getElementById('address'),form=document.getElementById('connect'),error=document.getElementById('error');field.value=localStorage.getItem('urtv-local-remote')||'';form.addEventListener('submit',e=>{e.preventDefault();error.textContent='';let value=field.value.trim();if(!value)return error.textContent='اكتب العنوان الذي يظهر على التلفزيون.';if(!/^https?:\/\//i.test(value))value='http://'+value;let url;try{url=new URL(value)}catch{return error.textContent='العنوان غير صحيح.'}if(url.protocol!=='http:'||!url.hostname||url.username||url.password)return error.textContent='استخدم عنوان HTTP المحلي الذي يظهر على التلفزيون.';if(!url.port)url.port='8080';localStorage.setItem('urtv-local-remote',url.origin);location.href=url.origin});
+</script></body></html>
+
+
+
